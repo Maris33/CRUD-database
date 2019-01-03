@@ -1,0 +1,72 @@
+﻿@model Animal
+@{
+    ViewData["Title"] = "EditAnimal";
+}
+<h2> Edit Animal</h2>
+
+@using (Html.BeginForm("AnimalEdited", "Animal", FormMethod.Post))
+{
+    @Html.HiddenFor(n => n.Id)
+    <div class="form-group">
+        @Html.LabelFor(n => n.ZooId)
+        @Html.DropDownListFor(n => n.ZooId, new SelectList(ViewBag.Zoos, "Id", "Name"), "Select zoo for animal ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.ZooId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.EmployeeId)
+        @Html.DropDownListFor(n => n.EmployeeId, new SelectList(ViewBag.Employees, "Id", "FullName"), "Select an Employee", new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.EmployeeId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.Name)
+        @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.AnimalTypeId)
+
+        @Html.DropDownListFor(n => n.AnimalTypeId, new SelectList(ViewBag.AnimalTypes, "Id", "TypeName"), "Select animal type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.AnimalTypeId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.AviaryId)
+
+        @Html.DropDownListFor(n => n.AviaryId, new SelectList(ViewBag.Aviaries, "Id", "AviaryName"), "Select animal aviary", new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.AviaryId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.MaleFemale)
+        @Html.TextBoxFor(e => e.MaleFemale, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.MaleFemale, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Growth)
+        @Html.TextBoxFor(e => e.Growth, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Growth, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Weight)
+        @Html.TextBoxFor(e => e.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Weight, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Age)
+        @Html.TextBoxFor(a => a.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Age, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        s
+        @Html.LabelFor(n => n.Birthday)
+        @Html.TextBoxFor(b => b.Birthday, new { @class = "form-control", @type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-default">Save All Changes</button>
+}
+

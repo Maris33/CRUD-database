@@ -1,0 +1,14 @@
+﻿@model ZooDb.ViewModels.ZooViewModel
+
+@{
+    ViewData["Title"] = "DeleteZoo";
+}
+
+<div class="text-center">
+    <h2 class="text-danger">You are about to delete the Zoo: @Model.ZooName</h2>
+    <h3>Are you sure?</h3>
+</div>
+
+@Html.ActionLink("Cancel", "All", "Zoo")
+@Html.ActionLink("Yes, sure!", "ZooDeleted", "Zoo", new { @id = Model.Id })
+

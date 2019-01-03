@@ -1,0 +1,47 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "EditEmployee";
+}
+<h2>Edit Employee</h2>
+
+@using (Html.BeginForm("EmployeeEdited", "Employee", FormMethod.Post))
+{
+    @Html.HiddenFor(n => n.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.ZooId)
+        @Html.DropDownListFor(n => n.ZooId, new SelectList(ViewBag.Zoos, "Id", "Name"), "Select a zoo", new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.ZooId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.FullName)
+        @Html.TextBoxFor(n => n.FullName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.FullName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.MaleFemale)
+        @Html.TextBoxFor(n => n.MaleFemale, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.MaleFemale, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Age)
+        @Html.TextBoxFor(e => e.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Age, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.Experience)
+        @Html.TextBoxFor(a => a.Experience, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Experience, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.PhoneNumber)
+        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.PhoneNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-default">Save All Changes</button>
+}

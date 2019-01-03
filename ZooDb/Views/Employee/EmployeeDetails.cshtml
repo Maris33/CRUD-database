@@ -1,0 +1,21 @@
+﻿@model EmployeeDetailsViewModel
+@{
+    ViewData["Title"] = "EmployeeDetails";
+}
+
+@if (Model.Id == 0)
+{
+    <div class="text-center alert-info">
+        <h1>There are no employees available.</h1>
+    </div>
+}
+else
+{
+    <h1>@Model.FullEmployeeName</h1>
+    <h1>@Model.EmployeeAge</h1>
+    <h1>@Model.EmployeeSex</h1>
+    <h1>@Model.EmpPhoneNumber</h1>
+    <h1>@Model.EmpExperience</h1>
+    <h1>@Model._Zoo.Name</h1>
+
+}

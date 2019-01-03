@@ -1,0 +1,25 @@
+﻿@model AnimalDetailsViewModel
+@{
+    ViewData["Title"] = "AnimalDetails";
+}
+
+@if (Model.Id == 0)
+{
+    <div class="text-center alert-info">
+        <h1>There are no animals available.</h1>
+    </div>
+}
+else
+{
+    <h1>@Model.AnimalName</h1>
+    <h1>@Model.AnimalAge</h1>
+    <h1>@Model.AnimalBirthday</h1>
+    <h1>@Model.AnimalSex</h1>
+    <h1>@Model.AnimalGrowth</h1>
+    <h1>@Model.AnimalWeight</h1>
+    <h1>@Model._Employee.FullName</h1>
+    <h1>@Model._AnimalType.TypeName</h1>
+    <h1>@Model._Aviary.AviaryName</h1>
+    <h1>@Model._Zoo.Name</h1>
+
+}
