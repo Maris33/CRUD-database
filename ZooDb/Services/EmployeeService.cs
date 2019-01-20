@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 using ZooDb.Data;
 using ZooDb.Models;
 using ZooDb.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ZooDb.Services
 {
     public class EmployeeService : IEmployeeService
     {
         private ZooContext _context;
-        public EmployeeService(ZooContext context)
+        private IHostingEnvironment _hostingEnvironment;
+        public EmployeeService(ZooContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
         public void AddEmployee(Employee employee)
         {
@@ -24,21 +28,17 @@ namespace ZooDb.Services
            
         }
 
-        /*public void DeleteEmployee(int id)
-        {
-            Employee employeeToBeDeleted = GetSingleEmployeeById(id);
-            _context.Employees.Remove(employeeToBeDeleted);
-            _context.SaveChanges();
-        }*/
+        
 
         public List<Employee> GetAllEmployees()
         {
-            List<Employee> employees = _context.Employees.Include(n => n.Zoo).ToList();
+            List<Employee> employees = _context.Employees.Include(n => n.Zoo).Include(o => o.Animals).ToList();
             return employees;
         }
 
         public Employee GetSingleEmployeeById(int id) => _context.Employees.Where(n => n.Id == id).FirstOrDefault();
        
+        //public List<Animal> GetAnimalsByEmployeeId(int employeeId) => _context.Animals.Where(x => x.EmployeeId == employeeId).ToList();
 
         public void UpdateEmployee(Employee newEmployee)
         {
@@ -49,10 +49,18 @@ namespace ZooDb.Services
             oldEmployee.Experience = newEmployee.Experience;
             oldEmployee.PhoneNumber = newEmployee.PhoneNumber;
             oldEmployee.ZooId = newEmployee.ZooId;
+            
             _context.SaveChanges();
         }
 
-        /*public EmployeeViewModel EmployeeDeletionConfirmation(int id)
+        public void DeleteEmployee(int id)
+        {
+            Employee employeeToBeDeleted = GetSingleEmployeeById(id);
+            _context.Employees.Remove(employeeToBeDeleted);
+            _context.SaveChanges();
+        }
+
+        public EmployeeViewModel EmployeeDeletionConfirmation(int id)
         {
 
             Employee employee = GetSingleEmployeeById(id);
@@ -66,7 +74,7 @@ namespace ZooDb.Services
 
         }
 
-       */
+       
 
         public EmployeeDetailsViewModel EmployeeDetails(int id)
         {
@@ -79,7 +87,9 @@ namespace ZooDb.Services
                 EmployeeAge = employee.Age,
                 EmpExperience = employee.Experience,
                 EmpPhoneNumber = employee.PhoneNumber,
-                _Zoo = new ZooService(_context).GetSingleZooById(employee.ZooId)
+                _Zoo = new ZooService(_context).GetSingleZooById(employee.ZooId),
+                _Animal = new AnimalService(_context, _hostingEnvironment).GetAnimalsByEmployeeId(employee.Id),
+                Image = "/images/employees/" + employee.Id+ ".jpg"
             };
             return employeeVM;
         }

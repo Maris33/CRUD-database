@@ -11,10 +11,38 @@
 }
 else
 {
-    <h1>@Model.ZooName</h1>
-    <h1>@Model.ZooAddress</h1>
-    <h1>@Model.ZooFoundingYear</h1>
-    <h1>@Model.Animals.Count()</h1>
-    <h1>@Model.Employees.Count()</h1>
-    
+    <div class="text-center text-success">
+        <h1>Detail information about <b>@Model.ZooName</b></h1>
+    </div>
+    <table class="table table-hover" style="margin-top: 40px; font-size: 20px;">
+        <thead>
+            <tr>
+                <th scope="col">Definition</th>
+                <th scope="col">Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td>@Model.ZooName</td>
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>@Model.ZooAddress</td>
+            </tr>
+            <tr>
+                <th scope="row">Founding year</th>
+                <td>@Model.ZooFoundingYear</td>
+            </tr>
+            <tr>
+                <th scope="row">Number of animals</th>
+                <td>@Model.Animals.Count()</td>
+            </tr>
+            <tr>
+                <th scope="row">Number of employees</th>
+                <td>@Model.Employees.Count()</td>
+            </tr>
+        </tbody>
+    </table>
 }
+    

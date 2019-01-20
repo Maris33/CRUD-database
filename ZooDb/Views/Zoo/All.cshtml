@@ -28,7 +28,7 @@ else
         @if (SignInManager.IsSignedIn(User))
         {
             <th>Edit</th>
-            
+            <th>Delete</th>
             <th>Show details</th>
         }
 
@@ -45,7 +45,7 @@ else
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <td>@Html.ActionLink("Edit", "EditZoo", "Zoo", new { @id = zoo.Id })</td>
-                    
+                    <td>@Html.ActionLink("Delete", "DeleteZoo", "Zoo", new {@id = zoo.Id })</td>
                     <td>@Html.ActionLink("Show Details", "ZooDetails", "Zoo", new { @id = zoo.Id })</td>
                 }
 

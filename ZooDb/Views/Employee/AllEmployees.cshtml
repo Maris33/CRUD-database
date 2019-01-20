@@ -24,9 +24,11 @@ else
         <th>Years Of Experience</th>
         <th>Phone Number</th>
         <th>Zoo Name</th>
+        <th>Number of animals</th>
         @if (SignInManager.IsSignedIn(User))
         {
             <th>Edit</th>
+            <th>Delete</th>
             <th>Show details</th>
         }
         </thead>
@@ -40,9 +42,11 @@ else
                 <td>@emp.Experience</td>
                 <td>@emp.PhoneNumber</td>
                 <td>@emp.Zoo.Name</td>
+                <td>@emp.Animals.Count()</td>
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <td>@Html.ActionLink("Edit", "EditEmployee", "Employee", new { @id = emp.Id })</td>
+                    <td>@Html.ActionLink("Delete", "DeleteEmployee", "Employee", new { @id = emp.Id})</td>
                     <td>@Html.ActionLink("Show details", "EmployeeDetails", "Employee", new { @id = emp.Id })</td>
                 }
 

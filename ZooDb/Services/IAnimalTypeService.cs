@@ -11,5 +11,6 @@ namespace ZooDb.Services
     {
          List<AnimalType> GetAllTypes();
         AnimalType GetSingleAnimalTypeById(int id);
+        
     }
 }

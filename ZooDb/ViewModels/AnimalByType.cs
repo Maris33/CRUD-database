@@ -6,12 +6,13 @@ using ZooDb.Models;
 
 namespace ZooDb.ViewModels
 {
-    public class ZooViewModel
+    public class AnimalByType
     {
-        public int Id { get; set; }
-        public string ZooName { get; set; }
-        public List<Employee> Employees { get; set; }
+     
+        public string CurrentType { get; set; }
         public List<Animal> Animals { get; set; }
-        public List<Zoo> Zoos { get; set; }
+       public  AnimalType _AnimalTypes { get; set; }
+     
+        
     }
 }

@@ -12,7 +12,7 @@ namespace ZooDb.ViewModels
         public string ZooName { get; set; }
         public string ZooAddress { get; set; }
         public DateTime ZooFoundingYear { get; set; }
-       // public int ZooNumberOfAnimals { get; set; }
+       
         public List<Employee> Employees { get; set; }
         public List<Animal> Animals { get; set; }
         

@@ -79,5 +79,18 @@ namespace ZooDb.Controllers
             return View(_animalService.AnimalDetails(id));
         }
 
+        public IActionResult DeleteAnimal(int id) => View(_animalService.AnimalDeletionConfirmation(id));
+
+
+        public IActionResult AnimalDeleted(int id)
+        {
+            _animalService.DeleteAnimal(id);
+            return View();
+
+        }
+        public IActionResult GetAnimalByType(string type)
+        {
+            return View(_animalService.GetAnimalByType(type));
+        }
     }
 }

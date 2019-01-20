@@ -8,7 +8,7 @@ namespace ZooDb.ViewModels
     public class AnimalViewModel
     {
         public int Id { get; set; }
-        public string AnimalFullName { get; set; }
+        public string Name { get; set; }
         public object AnimalName { get; internal set; }
     }
 }

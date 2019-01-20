@@ -41,7 +41,7 @@ namespace ZooDb.Services
             _context.SaveChanges();
         }
 
-       /* public void DeleteZoo(int id)
+        public void DeleteZoo(int id)
         {
             Zoo zooToBeDeleted = GetSingleZooById(id);
             _context.Zoos.Remove(zooToBeDeleted);
@@ -60,7 +60,7 @@ namespace ZooDb.Services
 
             return zooVM;
 
-        }*/
+        }
 
         public ZooDetailsViewModel ZooDetails(int id)
         {

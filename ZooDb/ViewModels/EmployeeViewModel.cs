@@ -12,5 +12,6 @@ namespace ZooDb.ViewModels
         public string FullName { get; set; }
         public List<Animal> Animals { get; set; }
         public object EmployeeName { get; internal set; }
+        
     }
 }

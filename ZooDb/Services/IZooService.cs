@@ -13,10 +13,10 @@ namespace ZooDb.Services
         void AddZoo(Zoo zoo);
         Zoo GetSingleZooById(int id);
         void UpdateZoo(Zoo newZoo);
-       // void DeleteZoo(int id);
+        void DeleteZoo(int id);
         List<Employee> GetEmployeesByZooId(int zooId);
         List<Animal> GetAnimalsByZooId(int zooId);
-        //ZooViewModel ZooDeletionConfirmation(int id);
+        ZooViewModel ZooDeletionConfirmation(int id);
         ZooDetailsViewModel ZooDetails(int id);
     }
 }

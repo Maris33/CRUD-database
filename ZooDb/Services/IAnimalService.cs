@@ -13,8 +13,10 @@ namespace ZooDb.Services
         void AddAnimal(Animal animal);
         Animal GetSingleAnimalById(int id);
         void UpdateAnimal(Animal newAnimal);
-        //void DeleteAnimal(int id);
+        void DeleteAnimal(int id);
+        List<Animal> GetAnimalsByEmployeeId(int employeeid);
         AnimalDetailsViewModel AnimalDetails(int id);
-        /*AnimalViewModel AnimalDeletionConfirmation(int id);*/
+        AnimalViewModel AnimalDeletionConfirmation(int id);
+        AnimalByType GetAnimalByType(string type);
     }
 }

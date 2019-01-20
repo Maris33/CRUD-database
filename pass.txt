@@ -1,1 +1,2 @@
 MaRi@&1999
+<!--@await Html.PartialAsync("~/Views/Animal/GetAnimalByType.cshtml")-->

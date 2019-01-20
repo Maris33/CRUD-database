@@ -15,5 +15,8 @@ namespace ZooDb.ViewModels
         public string EmpExperience { get; set; }
         public string EmpPhoneNumber { get; set; }
         public Zoo _Zoo { get; set; }
+        public List<Animal> _Animal { get; set; }
+        public string Image { get; set; }
+
     }
 }

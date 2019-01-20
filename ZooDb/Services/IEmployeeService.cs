@@ -13,9 +13,10 @@ namespace ZooDb.Services
         void AddEmployee(Employee employee);
         Employee GetSingleEmployeeById(int id);
         void UpdateEmployee(Employee newEmployee);
-        //void DeleteEmployee(int id);
+        void DeleteEmployee(int id);
         EmployeeDetailsViewModel EmployeeDetails(int id);
-        /*EmployeeViewModel EmployeeDeletionConfirmation(int id);
-        EmployeeViewModel EmployeeDetails(int id);*/
+       // List<Animal> GetAnimalsByEmployeeId(int employeeId);
+        EmployeeViewModel EmployeeDeletionConfirmation(int id);
+       
     }
 }

@@ -35,6 +35,7 @@ else
         @if (SignInManager.IsSignedIn(User))
         {
             <th>Edit</th>
+            <th>Delete</th>
             <th>Show Details</th>
         }
 
@@ -42,24 +43,29 @@ else
         <tbody>
             @foreach (Animal animal in Model)
             {
-            <tr>
-                <td>@animal.Name</td>
-                <td>@animal.Age</td>
-                <td>@animal.AnimalType.TypeName</td>
-                <td>@animal.Aviary.AviaryName</td>
-                <td>@animal.MaleFemale</td>
-                <td>@animal.Growth</td>
-                <td>@animal.Weight</td>
-                <td>@animal.Birthday.ToString("yyyy-MM-dd")</td>
-                <td>@animal.Employee.FullName</td>
-               <td>@animal.Zoo.Name</td>
-               
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <td>@Html.ActionLink("Edit", "EditAnimal", "Animal", new { @id = animal.Id })</td>
-                    <td>@Html.ActionLink("Show Details", "AnimalDetails", "Animal", new { @id = animal.Id })</td>
-                }
-            </tr>
+                <tr>
+                    <td>@animal.Name</td>
+                    <td>@animal.Age</td>
+                    <td>@animal.AnimalType.TypeName</td>
+                    <td>@animal.Aviary.AviaryName</td>
+                    <td>@animal.MaleFemale</td>
+                    <td>@animal.Growth</td>
+                    <td>@animal.Weight</td>
+                    <td>@animal.Birthday.ToString("yyyy-MM-dd")</td>
+                    <td>@animal.Employee.FullName</td>
+                    @if (animal.Employee.Id == 0) { 
+                        <td>Emp was deleted</td>
+                    }
+                    <td>@animal.Zoo.Name</td>
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <td>@Html.ActionLink("Edit", "EditAnimal", "Animal", new { @id = animal.Id })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteAnimal", "Animal", new { @id = animal.Id})</td>
+                        <td>@Html.ActionLink("Show Details", "AnimalDetails", "Animal", new { @id = animal.Id })</td>
+                        
+                    }
+                </tr>
             }
         </tbody>
     </table>

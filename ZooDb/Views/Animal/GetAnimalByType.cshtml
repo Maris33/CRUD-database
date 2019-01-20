@@ -1,0 +1,8 @@
+﻿@model List<AnimalByType>
+
+@foreach (AnimalByType type in Model)
+{
+    <a asp-controller="AnimalService" asp-action="GetAnimalByType()" asp-route-type="@type._AnimalTypes.TypeName">@type._AnimalTypes.TypeName</a>
+}
+
+<a asp-controller="AnimalService" asp-action="GetAnimalByType()" asp-route-type="">View all types</a>

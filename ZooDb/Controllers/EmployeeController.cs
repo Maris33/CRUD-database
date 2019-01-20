@@ -61,5 +61,13 @@ namespace ZooDb.Controllers
         {
             return View(_employeeService.EmployeeDetails(id));
         }
+        public IActionResult DeleteEmployee(int id) => View(_employeeService.EmployeeDeletionConfirmation(id));
+
+        public IActionResult EmployeeDeleted(int id)
+        {
+            _employeeService.DeleteEmployee(id);
+
+            return View();
+        }
     }
 }

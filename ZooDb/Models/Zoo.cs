@@ -18,8 +18,7 @@ namespace ZooDb.Models
         public string Address { get; set; }
         [Display(Name = "Founding year")]
         public DateTime FoundingYear { get; set; }
-        //[Display(Name = "Number of animals")]
-        //public int NumberOfAnimals { get; set; }
+       
 
         //Relations
 

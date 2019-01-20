@@ -45,14 +45,15 @@ namespace ZooDb.Controllers
 
             return View();
         }
-        //public IActionResult DeleteZoo(int id) => View(_zooService.ZooDeletionConfirmation(id));
+
+        public IActionResult DeleteZoo(int id) => View(_zooService.ZooDeletionConfirmation(id));
 
 
-        /*public IActionResult ZooDeleted(int id)
+        public IActionResult ZooDeleted(int id)
         {
             _zooService.DeleteZoo(id);
             return View();
-        }*/
+        }
         public IActionResult ZooDetails(int id)
         {
             return View(_zooService.ZooDetails(id));

@@ -25,6 +25,9 @@ namespace ZooDb.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Zoo>().HasMany(v => v.Animals).WithOne().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Employee>().HasMany(j => j.Animals).WithOne().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Animal>().HasOne(m => m.Employee).WithMany(b => b.Animals).HasForeignKey(q => q.EmployeeId);
+     
             modelBuilder.Entity<Animal>().HasOne(m => m.Zoo).WithMany(b => b.Animals).HasForeignKey(q => q.ZooId);
             base.OnModelCreating(modelBuilder);
         }

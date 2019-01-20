@@ -11,11 +11,59 @@
 }
 else
 {
-    <h1>@Model.FullEmployeeName</h1>
-    <h1>@Model.EmployeeAge</h1>
-    <h1>@Model.EmployeeSex</h1>
-    <h1>@Model.EmpPhoneNumber</h1>
-    <h1>@Model.EmpExperience</h1>
-    <h1>@Model._Zoo.Name</h1>
+
+    <div class="text-center text-success">
+        <h1>Detail information about <b>@Model.FullEmployeeName</b></h1>
+    </div>
+    <table class="table table-hover" style="margin-top: 40px; font-size: 20px;">
+        <thead>
+            <tr>
+                <th scope="col">Definition</th>
+                <th scope="col">Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <th scope="row">Name</th>
+                <td>@Model.FullEmployeeName</td>
+            </tr>
+            <tr>
+                <th scope="row">Age</th>
+                <td>@Model.EmployeeAge</td>
+            </tr>
+            <tr>
+                <th scope="row">Male/Female</th>
+                <td>@Model.EmployeeSex</td>
+            </tr>
+            <tr>
+                <th scope="row">Phone number</th>
+                <td>@Model.EmpPhoneNumber</td>
+            </tr>
+            <tr>
+                <th scope="row">Years of experience</th>
+                <td>@Model.EmpExperience</td>
+            </tr>
+            <tr>
+                <th scope="row">Zoo name</th>
+                <td>@Model._Zoo.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Total number of animals</th>
+                <td>@Model._Animal.Count()</td>
+            </tr>
+            <tr>
+                <th scope="row">Animal list</th>
+                <td>
+                    @foreach (Animal animal in Model._Animal)
+                    {
+                        <h1>@animal.Name</h1>
+                    }
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    
 
 }

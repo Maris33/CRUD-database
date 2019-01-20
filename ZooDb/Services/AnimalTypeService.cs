@@ -12,16 +12,20 @@ namespace ZooDb.Services
     public class AnimalTypeService : IAnimalTypeService
     {
         private ZooContext _context;
-        public AnimalTypeService(ZooContext context)
+        private IAnimalService _animalService;
+        public AnimalTypeService(ZooContext context, IAnimalService animalService)
         {
             _context = context;
+            _animalService = animalService;
         }
         public List<AnimalType> GetAllTypes()
         {
             List<AnimalType> types = _context.AnimalTypes.ToList();
             return types;
         }
-        //public Employee GetSingleEmployeeById(int id) => _context.Employees.Where(n => n.Id == id).FirstOrDefault();
+       
         public AnimalType GetSingleAnimalTypeById(int id) => _context.AnimalTypes.Where(n => n.Id == id).FirstOrDefault();
+
+       
     }
 }
