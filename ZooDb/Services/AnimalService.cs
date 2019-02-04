@@ -14,7 +14,7 @@ namespace ZooDb.Services
     {
         private ZooContext _context;
         private IHostingEnvironment _hostingEnvironment;
-        private IAnimalService _animalService;
+       
         public AnimalService(ZooContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
@@ -37,32 +37,32 @@ namespace ZooDb.Services
             string currentType = string.Empty;
             if (string.Equals("Birds", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Birds")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Birds")).OrderBy(p => p.Name).ToList();
             }
             else if (string.Equals("Mammals", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Mammals")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Mammals")).OrderBy(p => p.Name).ToList();
             }
             else if (string.Equals("Fish", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Fish")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Fish")).OrderBy(p => p.Name).ToList();
             }
             else if (string.Equals("Reptiles", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Reptiles")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Reptiles")).OrderBy(p => p.Name).ToList();
             }
             else if (string.Equals("Amphibians", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Amphibians")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Amphibians")).OrderBy(p => p.Name).ToList();
             }
             else if (string.Equals("Arthropods", _type, StringComparison.OrdinalIgnoreCase))
             {
-                animals = _animalService.GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Arthropods")).OrderBy(p => p.Name).ToList();
+                animals = GetAllAnimals().Where(p => p.AnimalType.TypeName.Equals("Arthropods")).OrderBy(p => p.Name).ToList();
             }
             else
             {
 
-                animals = _animalService.GetAllAnimals().OrderBy(p => p.Id).ToList();
+                animals = GetAllAnimals().OrderBy(p => p.Id).ToList();
                 currentType = "All animals";
             }
             AnimalByType view = new AnimalByType();
@@ -120,7 +120,7 @@ namespace ZooDb.Services
             {
                 Id = animal.Id,
                 AnimalName = animal.Name,
-                _AnimalType = new AnimalTypeService(_context, _animalService).GetSingleAnimalTypeById(animal.AnimalTypeId),
+                _AnimalType = new AnimalTypeService(_context, this).GetSingleAnimalTypeById(animal.AnimalTypeId),
                 _Aviary = new AviaryService(_context).GetSingleAviaryById(animal.AviaryId),
                 AnimalSex = animal.MaleFemale,
                 AnimalGrowth = animal.Growth,

@@ -26,9 +26,7 @@ else
         <th>Age</th>
         <th>Type</th>
         <th>Aviary</th>
-        <th>male & Female</th>
-        <th>Growth</th>
-        <th>Weight</th>
+        
         <th>Birthday</th>
         <th>Employee Name</th>
         <th>Zoo Name</th>
@@ -48,9 +46,7 @@ else
                     <td>@animal.Age</td>
                     <td>@animal.AnimalType.TypeName</td>
                     <td>@animal.Aviary.AviaryName</td>
-                    <td>@animal.MaleFemale</td>
-                    <td>@animal.Growth</td>
-                    <td>@animal.Weight</td>
+                    
                     <td>@animal.Birthday.ToString("yyyy-MM-dd")</td>
                     <td>@animal.Employee.FullName</td>
                     @if (animal.Employee.Id == 0) { 

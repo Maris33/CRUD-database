@@ -1,6 +1,9 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
@@ -46,5 +49,25 @@
     </a>
 </div>
 
-@await Html.PartialAsync("~/Views/Animal/GetAnimalByType.cshtml")
+
+
+<div class="container">
+    <div class="row">
+       
+        @foreach (AnimalType type in Model._AnimalTypes)
+        {
+            <div class="col-md-4">
+                <h2>@type.TypeName</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <a asp-controller="Animal" asp-action="GetAnimalByType" asp-route-type="@type.TypeName" class="btn btn-success">View the @type.TypeName list</a>
+            </div>
+        }
+    </div>
+        <hr>
+
+    </div> <!-- /container -->
+
+
+
+
 
